@@ -1,0 +1,21 @@
+# 设置cmake的最低版本
+cmake_minimum_required(VERSION 3.10)
+
+# 指定为C++11 版本
+set(CMAKE_CXX_STANDARD 11)
+
+project(retree)
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/)
+set(CMAKE_DEBUG_POSTFIX "_d")    
+set(CMAKE_RELEASE_POSTFIX "_r") 
+
+
+file(GLOB_RECURSE CURRENT_HEADERS  ${PROJECT_SOURCE_DIR}/*.h )
+
+file(GLOB_RECURSE SRC ${PROJECT_SOURCE_DIR}/*.cpp)
+source_group("Include" FILES ${CURRENT_HEADERS})
+
+add_executable(${PROJECT_NAME} ${SRC} ${CURRENT_HEADERS})
+
+#SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
